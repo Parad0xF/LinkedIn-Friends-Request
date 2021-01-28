@@ -15,13 +15,13 @@ def login():
     username = driver.find_element_by_id("username")
 
     # Inserting the user-name in the username field
-    username.send_keys("radu.enachi@gmail.com") # Type between quotation marks your username
+    username.send_keys("") # Type between quotation marks your username
 
     # Finding the Html element by id / can be modified to adopt your needs
     password = driver.find_element_by_id("password")
 
     # Inserting the password in the password field
-    password.send_keys("root37379905700radyK@~") # Type between quotation marks your password
+    password.send_keys("") # Type between quotation marks your password
 
     # Finding the class name and the act on the tag
     driver.find_element_by_class_name("btn__primary--large").click()

@@ -3,7 +3,7 @@
 * [Install](#install)
 * [License](#license)
 ### General info
-This project is simple LinkedIn Friend Request using selenium. 
+This project is simple LinkedIn Friend Request using selenium. For education purpose!
 	
 ### Install
 $ pip install virtualenv

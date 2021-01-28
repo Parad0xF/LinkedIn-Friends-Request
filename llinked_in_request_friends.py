@@ -1,7 +1,5 @@
 import modules
 
-username = ""  # Type between quotation marks your password
-password = ""  # Type between quotation marks your password
 # Using the iphone user agent for firefox
 profile = modules.webdriver.FirefoxProfile()
 profile.set_preference("general.useragent.override", "Iphone")
@@ -9,23 +7,21 @@ profile.set_preference("general.useragent.override", "Iphone")
 # Path to the webdriver, argument is the user-gent profile
 driver = modules.webdriver.Firefox(profile, executable_path=r'C:\geckodriver.exe')
 
-
 # Login to Linked in :
 def login():
     login_url = "https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin"
     driver.get(login_url)
-
     # Finding the Html element by id / can be modified to adopt your needs
     username = driver.find_element_by_id("username")
 
     # Inserting the user-name in the username field
-    username.send_keys(username)
+    username.send_keys("") # Type between quotation marks your username
 
     # Finding the Html element by id / can be modified to adopt your needs
     password = driver.find_element_by_id("password")
 
     # Inserting the password in the password field
-    password.send_keys(password)
+    password.send_keys("") # Type between quotation marks your password
 
     # Finding the class name and the act on the tag
     driver.find_element_by_class_name("btn__primary--large").click()

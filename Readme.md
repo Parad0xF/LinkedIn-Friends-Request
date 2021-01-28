@@ -4,6 +4,7 @@
 * [License](#license)
 ### General info
 This project is simple LinkedIn Friend Request using selenium. For education purpose!
+Was tested on Windows.
 	
 ### Install
 $ pip install virtualenv

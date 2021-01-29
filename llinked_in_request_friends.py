@@ -7,6 +7,7 @@ profile.set_preference("general.useragent.override", "Iphone")
 # Path to the webdriver, argument is the user-gent profile
 driver = modules.webdriver.Firefox(profile, executable_path=r'C:\geckodriver.exe')
 
+
 # Login to Linked in :
 def login():
     login_url = "https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin"
@@ -15,13 +16,13 @@ def login():
     username = driver.find_element_by_id("username")
 
     # Inserting the user-name in the username field
-    username.send_keys("") # Type between quotation marks your username
+    username.send_keys("radu.enachi@gmail.com")  # Type between quotation marks your username
 
     # Finding the Html element by id / can be modified to adopt your needs
     password = driver.find_element_by_id("password")
 
     # Inserting the password in the password field
-    password.send_keys("") # Type between quotation marks your password
+    password.send_keys("root37379905700radyK@~")  # Type between quotation marks your password
 
     # Finding the class name and the act on the tag
     driver.find_element_by_class_name("btn__primary--large").click()
@@ -41,15 +42,17 @@ def add_friends():
     # For each price range
     # Get find the element
     # Wait the random time
+    modules.time.sleep(2)
     for i in range(0, 100):
         try:
             driver.find_element_by_class_name("artdeco-button--secondary").click()
             modules.time.sleep(modules.randrange(5))
-        except modules.ElementClickInterceptedException:
-            driver.quit()
-            return
+        except modules.exceptions.ElementClickInterceptedException:
+            quit_task()
+        except modules.exceptions.NoSuchElementException:
+            quit_task()
         # Scroll the page
-        if i == 5:
+        if i == 3:
             scroll_page()
 
 
@@ -57,7 +60,7 @@ def add_friends():
 def scroll_page():
     SCROLL_PAUSE_TIME = 0.5
 
-    while True:
+    for i in range(0, 5):
 
         # Get scroll height
         last_height = driver.execute_script("return document.body.scrollHeight")
@@ -82,7 +85,7 @@ def scroll_page():
             if new_height == last_height:
 
                 # if so, you are done
-                break
+                i += 1
 
             # if not, move on to the next loop
             else:
@@ -93,6 +96,7 @@ def scroll_page():
 
 def quit_task():
     driver.quit()
+    return
 
 
 # Run the script
